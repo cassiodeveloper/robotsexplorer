@@ -1,0 +1,5 @@
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer.ConfigManager\bin\Debug\RobotsExplorer.ConfigManager.dll
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer.ConfigManager\bin\Debug\RobotsExplorer.ConfigManager.pdb
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer.ConfigManager\obj\Debug\RobotsExplorer.ConfigManager.dll
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer.ConfigManager\obj\Debug\RobotsExplorer.ConfigManager.pdb
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer.ConfigManager\obj\Debug\RobotsExplorer.ConfigManager.csprojResolveAssemblyReference.cache

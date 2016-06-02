@@ -1,0 +1,37 @@
+﻿using RobotsExplorer.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RobotsExplorer.Util
+{
+    public static class Util
+    {
+        public static Proxy FormatProxyStringToProxyObject(string proxyPattern)
+        {
+            if(string.IsNullOrEmpty(proxyPattern))
+                return null;
+
+            Proxy proxy = new Proxy();
+
+            try
+            {
+                string[] proxyData = proxyPattern.Split(':');
+
+                proxy.Protocol = proxyData[0];
+                proxy.User = proxyData[1];
+                proxy.Password = proxyData[2];
+                proxy.Domain = proxyData[3];
+                proxy.Port = Convert.ToInt32(proxyData[4]);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred when I try to format proxy string, try again!", ex);
+            }
+
+            return proxy;
+        }
+    }
+}

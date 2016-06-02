@@ -1,0 +1,4 @@
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer.Model\bin\Release\RobotsExplorer.Model.dll
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer.Model\bin\Release\RobotsExplorer.Model.pdb
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer.Model\obj\Release\RobotsExplorer.Model.dll
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer.Model\obj\Release\RobotsExplorer.Model.pdb

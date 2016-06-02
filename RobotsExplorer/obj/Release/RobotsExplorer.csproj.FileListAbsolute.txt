@@ -1,0 +1,15 @@
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer\bin\Release\RobotsExplorer.exe.config
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer\bin\Release\RobotsExplorer.exe
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer\bin\Release\RobotsExplorer.pdb
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer\bin\Release\NDesk.Options.dll
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer\bin\Release\RobotsExplorer.ConfigManager.dll
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer\bin\Release\RobotsExplorer.HttpManager.dll
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer\bin\Release\RobotsExplorer.Model.dll
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer\bin\Release\RobotsExplorer.Util.dll
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer\bin\Release\RobotsExplorer.ConfigManager.pdb
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer\bin\Release\RobotsExplorer.HttpManager.pdb
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer\bin\Release\RobotsExplorer.Model.pdb
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer\bin\Release\RobotsExplorer.Util.pdb
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer\obj\Release\RobotsExplorer.csprojResolveAssemblyReference.cache
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer\obj\Release\RobotsExplorer.exe
+C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer\obj\Release\RobotsExplorer.pdb
