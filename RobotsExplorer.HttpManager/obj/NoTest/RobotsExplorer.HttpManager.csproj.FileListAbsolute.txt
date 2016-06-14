@@ -1,0 +1,5 @@
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.HttpManager\bin\NoTest\RobotsExplorer.HttpManager.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.HttpManager\bin\NoTest\RobotsExplorer.Model.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.HttpManager\bin\NoTest\RobotsExplorer.Util.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.HttpManager\obj\NoTest\RobotsExplorer.HttpManager.csprojResolveAssemblyReference.cache
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.HttpManager\obj\NoTest\RobotsExplorer.HttpManager.dll

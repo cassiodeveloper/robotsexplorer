@@ -1,0 +1,9 @@
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\NoTest\RobotsExplorer.exe.config
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\NoTest\RobotsExplorer.exe
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\NoTest\NDesk.Options.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\NoTest\RobotsExplorer.ConfigManager.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\NoTest\RobotsExplorer.HttpManager.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\NoTest\RobotsExplorer.Model.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\NoTest\RobotsExplorer.Util.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\obj\NoTest\RobotsExplorer.csprojResolveAssemblyReference.cache
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\obj\NoTest\RobotsExplorer.exe

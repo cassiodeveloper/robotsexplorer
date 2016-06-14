@@ -1,0 +1,4 @@
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Util\bin\NoTest\RobotsExplorer.Util.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Util\bin\NoTest\RobotsExplorer.Model.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Util\obj\NoTest\RobotsExplorer.Util.csprojResolveAssemblyReference.cache
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Util\obj\NoTest\RobotsExplorer.Util.dll

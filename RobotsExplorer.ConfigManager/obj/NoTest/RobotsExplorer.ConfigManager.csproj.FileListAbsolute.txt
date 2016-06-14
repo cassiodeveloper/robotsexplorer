@@ -1,0 +1,3 @@
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.ConfigManager\bin\NoTest\RobotsExplorer.ConfigManager.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.ConfigManager\obj\NoTest\RobotsExplorer.ConfigManager.csprojResolveAssemblyReference.cache
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.ConfigManager\obj\NoTest\RobotsExplorer.ConfigManager.dll

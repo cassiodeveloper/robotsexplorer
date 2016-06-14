@@ -1,2 +1,4 @@
 language: csharp
 solution: RobotsExplorer.sln
+script:
+  - xbuild /p:Configuration="NoTest" RobotsExplorer.sln
