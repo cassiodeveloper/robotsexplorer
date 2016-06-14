@@ -13,3 +13,18 @@ C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\R
 C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer\bin\Debug\RobotsExplorer.ConfigManager.dll
 C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer\bin\Debug\RobotsExplorer.ConfigManager.pdb
 C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer\bin\Debug\NDesk.Options.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\Debug\RobotsExplorer.exe.config
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\obj\Debug\RobotsExplorer.exe
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\obj\Debug\RobotsExplorer.pdb
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\Debug\RobotsExplorer.exe
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\Debug\RobotsExplorer.pdb
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\Debug\NDesk.Options.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\Debug\RobotsExplorer.ConfigManager.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\Debug\RobotsExplorer.HttpManager.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\Debug\RobotsExplorer.Model.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\Debug\RobotsExplorer.Util.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\Debug\RobotsExplorer.ConfigManager.pdb
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\Debug\RobotsExplorer.HttpManager.pdb
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\Debug\RobotsExplorer.Model.pdb
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\bin\Debug\RobotsExplorer.Util.pdb
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer\obj\Debug\RobotsExplorer.csprojResolveAssemblyReference.cache
