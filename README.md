@@ -1,3 +1,5 @@
+<img src="https://travis-ci.org/cassiodeveloper/robotsexplorer.svg?branch=master" />
+
 Autor: @cassiov1ru5
 
 Ferramenta: Robots Explorer
