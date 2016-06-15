@@ -1,4 +1,7 @@
 <img src="https://travis-ci.org/cassiodeveloper/robotsexplorer.svg?branch=master" />
+<a href="https://codeclimate.com/github/cassiodeveloper/robotsexplorer">
+	<img src="https://codeclimate.com/github/cassiodeveloper/robotsexplorer/badges/gpa.svg" />
+</a>
 
 Autor: @cassiov1ru5
 
