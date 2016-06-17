@@ -18,6 +18,7 @@ namespace RobotsExplorer
         private static string _proxy = null;
         private static string _domainList = null;
         private static bool _showHelp = false;
+        private static bool _showVersion = false;
         private static HttpManager.HttpManager httpManager = null;
         private static Robot robot = null;
         private static OptionSet options;
@@ -33,7 +34,7 @@ namespace RobotsExplorer
 
             ParseOptionsInput(args);
 
-            if (ValidadeOptionsInput(args))
+            if (ValidadeRequiredOptionsInput(args))
             {
                 if (_urlTarget.Substring(_urlTarget.Length -1, 1) == "/")
                     _urlTarget += ConfigManager.ConfigManager.robotPath.Replace("/", string.Empty);
@@ -54,16 +55,22 @@ namespace RobotsExplorer
                 .Add("u=|urlTarget=", "The {URL} to scan.", u => _urlTarget = u)
                 .Add("p|proxy=", "The {PROXY} pattern if you are behind one. Ex: http:user:password:domain:port", p => _proxy = p)
                 .Add("l|list=", "A full {FILE PATH} with a list of domains to scan.", l => _domainList = l)
-                .Add("v|version=", "The {VERSION} of Robots Explorer.", v => DisplayVersion())
+                .Add("v|version=", "The {VERSION} of Robots Explorer.", v => _showVersion = v != null)
                 .Add("?|h|help", "Need help?", h => _showHelp = h != null);
 
             options.Parse(args);
+
+            if (_showVersion)
+            {
+                DisplayVersion();
+                Environment.Exit(0);
+            }
 
             if (_showHelp)
                 DisplayHelp(options);
         }
 
-        private static bool ValidadeOptionsInput(string[] args)
+        private static bool ValidadeRequiredOptionsInput(string[] args)
         {
             bool valid = false;
 
