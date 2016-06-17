@@ -5,6 +5,14 @@
         #region Public Constants
 
         public const string robotPath = "/robots.txt";
+        public const string urlHelpText = "The {URL} to scan.";
+        public const string proxyHelpText = "The {PROXY} pattern if you are behind one. Ex: http:user:password:domain:port";
+        public const string fileListHelpText = "A full {FILE PATH} with a list of domains to scan.";
+        public const string versionHelpText = "The {VERSION} of Robots Explorer.";
+        public const string userAgentHelpText = "The string name of a {USER AGENT} to make the request. List of User Agents updated at: \n useragentstring.com/pages/Browserlist/";
+        public const string requestQuantityHelpText = "The max {QUANTITY} of total requests.";
+        public const string requestTimeIntervalHelpText = "The {INTERVAL TIME} in seconds between each request.";
+        public const string helpText = "Need help?";
         public const string artAscii = @"
 ____   ___   ____    ___   ______  _____       ___  __ __  ____  _       ___   ____     ___  ____  
 |    \ /   \ |    \  /   \ |      |/ ___/      /  _]|  |  ||    \| |     /   \ |    \   /  _]|    \ 

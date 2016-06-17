@@ -17,8 +17,12 @@ namespace RobotsExplorer
         private static string _urlTarget = null;
         private static string _proxy = null;
         private static string _domainList = null;
+        private static string _userAgent = null;
         private static bool _showHelp = false;
         private static bool _showVersion = false;
+        private static int _requestQuantity = 0;
+        private static int _requestTimeInterval = 0;
+        
         private static HttpManager.HttpManager httpManager = null;
         private static Robot robot = null;
         private static OptionSet options;
@@ -52,11 +56,14 @@ namespace RobotsExplorer
         private static void ParseOptionsInput(string[] args)
         {
             options = new OptionSet()
-                .Add("u=|urlTarget=", "The {URL} to scan.", u => _urlTarget = u)
-                .Add("p|proxy=", "The {PROXY} pattern if you are behind one. Ex: http:user:password:domain:port", p => _proxy = p)
-                .Add("l|list=", "A full {FILE PATH} with a list of domains to scan.", l => _domainList = l)
-                .Add("v|version=", "The {VERSION} of Robots Explorer.", v => _showVersion = v != null)
-                .Add("?|h|help", "Need help?", h => _showHelp = h != null);
+                .Add("u=|urlTarget=", ConfigManager.ConfigManager.urlHelpText, u => _urlTarget = u)
+                .Add("p|proxy=", ConfigManager.ConfigManager.proxyHelpText, p => _proxy = p)
+                .Add("l|list=", ConfigManager.ConfigManager.fileListHelpText, l => _domainList = l)
+                .Add("a|userAgent=", ConfigManager.ConfigManager.userAgentHelpText, a => _userAgent = a)
+                .Add("r|requestQuantity=", ConfigManager.ConfigManager.requestQuantityHelpText, r => _requestQuantity = Convert.ToInt32(r))
+                .Add("t|requestTimeInterval=", ConfigManager.ConfigManager.requestTimeIntervalHelpText, t => _requestTimeInterval = Convert.ToInt32(t))
+                .Add("v|version=", ConfigManager.ConfigManager.versionHelpText, v => _showVersion = v != null)
+                .Add("?|h|help", ConfigManager.ConfigManager.helpText, h => _showHelp = h != null);
 
             options.Parse(args);
 
@@ -107,7 +114,7 @@ namespace RobotsExplorer
 
             httpManager = new HttpManager.HttpManager();
             
-            WebRequest request = httpManager.WebRequestFactory(_urlTarget, _proxy, string.Empty);
+            WebRequest request = httpManager.WebRequestFactory(_urlTarget, _proxy, _userAgent);
             WebResponse response = request.GetResponse();
 
             if (((HttpWebResponse)response).StatusCode == HttpStatusCode.OK)
@@ -175,7 +182,7 @@ namespace RobotsExplorer
         {
             try
             {
-                WebRequest request = httpManager.WebRequestFactory(domain + directory, _proxy, string.Empty);
+                WebRequest request = httpManager.WebRequestFactory(domain + directory, _proxy, _userAgent);
                 WebResponse response = request.GetResponse();
 
                 if (((HttpWebResponse)response).StatusCode == HttpStatusCode.OK)
