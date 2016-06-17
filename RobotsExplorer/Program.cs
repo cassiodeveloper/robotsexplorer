@@ -5,6 +5,8 @@ using RobotsExplorer.HttpManager;
 using RobotsExplorer.Model;
 using RobotsExplorer.ConfigManager;
 using NDesk.Options;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace RobotsExplorer
 {
@@ -14,8 +16,11 @@ namespace RobotsExplorer
 
         private static string _urlTarget = null;
         private static string _proxy = null;
+        private static string _domainList = null;
+        private static bool _showHelp = false;
         private static HttpManager.HttpManager httpManager = null;
         private static Robot robot = null;
+        private static OptionSet options;
 
         #endregion
 
@@ -23,11 +28,17 @@ namespace RobotsExplorer
 
         public static void Main(string[] args)
         {
+            Console.WriteLine(ConfigManager.ConfigManager.artAscii);
+            Console.WriteLine();
+
             ParseOptionsInput(args);
 
             if (ValidadeOptionsInput(args))
             {
-                _urlTarget += ConfigManager.ConfigManager.robotPath;
+                if (_urlTarget.Substring(_urlTarget.Length -1, 1) == "/")
+                    _urlTarget += ConfigManager.ConfigManager.robotPath.Replace("/", string.Empty);
+                else    
+                    _urlTarget += ConfigManager.ConfigManager.robotPath;
 
                 Execute();
             }
@@ -39,12 +50,17 @@ namespace RobotsExplorer
 
         private static void ParseOptionsInput(string[] args)
         {
-            OptionSet options = new OptionSet()
-                .Add("u=|urlTarget=", u => _urlTarget = u)
-                .Add("p|proxy=", p => _proxy = p)
-                .Add("?|h|help", h => DisplayHelp());
+            options = new OptionSet()
+                .Add("u=|urlTarget=", "The {URL} to scan.", u => _urlTarget = u)
+                .Add("p|proxy=", "The {PROXY} pattern if you are behind one. Ex: http:user:password:domain:port", p => _proxy = p)
+                .Add("l|list=", "A full {FILE PATH} with a list of domains to scan.", l => _domainList = l)
+                .Add("v|version=", "The {VERSION} of Robots Explorer.", v => DisplayVersion())
+                .Add("?|h|help", "Need help?", h => _showHelp = h != null);
 
             options.Parse(args);
+
+            if (_showHelp)
+                DisplayHelp(options);
         }
 
         private static bool ValidadeOptionsInput(string[] args)
@@ -52,16 +68,26 @@ namespace RobotsExplorer
             bool valid = false;
 
             if (string.IsNullOrEmpty(_urlTarget))
-                DisplayHelp();
+                DisplayHelp(options);
             else
                 valid = true;
 
             return valid;
         }
 
-        private static void DisplayHelp()
+        private static void DisplayHelp(OptionSet options)
         {
-            Console.WriteLine("Help :)");
+            Console.WriteLine("Robots Explorer --- Version: " + GetRobotsExplorerVersion() + " Released: June, 2016");
+            Console.WriteLine("Copyright (C) 2016 Batista Pereira, Cássio (http://github.com/cassiodeveloper)");
+            Console.WriteLine("http://cassiodeveloper.github.io/robotsexplorer");
+            Console.WriteLine();
+            Console.WriteLine("Options:");
+            options.WriteOptionDescriptions(Console.Out);
+        }
+
+        private static void DisplayVersion()
+        {
+            Console.WriteLine(GetRobotsExplorerVersion());
         }
 
         private static void Execute()
@@ -227,6 +253,11 @@ namespace RobotsExplorer
                 Console.WriteLine();
                 FinishExecution();
             }
+        }
+
+        private static string GetRobotsExplorerVersion()
+        {
+            return FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
         }
 
         #endregion
