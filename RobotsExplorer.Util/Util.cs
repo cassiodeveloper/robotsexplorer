@@ -105,6 +105,28 @@ namespace RobotsExplorer.Util
             Console.ForegroundColor = ConsoleColor.White;
         }
 
+        public static void ReadTextFileAndFillDomainsList(string filePath, Domain domainNames)
+        {
+            string line;
+            
+            try
+            {
+                StreamReader file = new StreamReader(filePath);
+
+                if (file != null)
+                {
+                    while ((line = file.ReadLine()) != null)
+                        domainNames.DomainNames.Add(line);
+
+                    file.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         #endregion
 
         #region Private and Auxiliary Methods
