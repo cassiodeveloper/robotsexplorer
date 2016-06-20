@@ -1,5 +1,6 @@
 ﻿using RobotsExplorer.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -127,6 +128,11 @@ namespace RobotsExplorer.Util
             }
         }
 
+        public static bool IsNotNullAndHasCount(this ICollection list)
+        {
+            return list != null && list.Count > 0;
+        }
+
         #endregion
 
         #region Private and Auxiliary Methods
@@ -160,7 +166,7 @@ namespace RobotsExplorer.Util
                 robot.Allows = new List<string>();
 
                 foreach (var allow in matchAllow)
-                    robot.Disallows.Add(allow.ToString().ToLower().TrimEnd('\r', '\n').Replace("allow: ", string.Empty));
+                    robot.Allows.Add(allow.ToString().ToLower().TrimEnd('\r', '\n').Replace("allow: ", string.Empty));
             }
         }
 

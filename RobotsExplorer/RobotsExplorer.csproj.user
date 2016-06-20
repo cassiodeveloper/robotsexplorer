@@ -11,6 +11,6 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>-u=http://serac-group.com/ -p=http:mtzcpd1053:Cvc1723%40:cvcproxy01.cvc.com.br:8080 -a="Teste" -r=2</StartArguments>
+    <StartArguments>-u=http://serac-group.com -p=http:mtzcpd1053:Cvc1723%40:cvcproxy01.cvc.com.br:8080</StartArguments>
   </PropertyGroup>
 </Project>

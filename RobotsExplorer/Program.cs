@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Net;
 using System.Reflection;
 using System.Threading;
+using RobotsExplorer.Util;
 
 namespace RobotsExplorer
 {
@@ -22,7 +23,7 @@ namespace RobotsExplorer
         private static int _requestQuantity = int.MaxValue;
         private static int _requestTimeInterval = 0;
         private static int _requestTimeout = 0;
-        
+
         private static HttpManager.HttpManager httpManager = null;
         private static Robot robot = null;
         private static OptionSet options;
@@ -39,17 +40,33 @@ namespace RobotsExplorer
 
             ParseOptionsInput(args);
 
-            if (ValidadeRequiredOptionsInput(args))
+            if (domainNames != null && domainNames.DomainNames.IsNotNullAndHasCount())
             {
-                FormatDomainInput();
-
-                Execute();
+                foreach (var domain in domainNames.DomainNames)
+                    PreExecution(domain);
             }
+            else
+            {
+                if (ValidadeRequiredOptionsInput())
+                    PreExecution(string.Empty);
+            }
+
+            FinishExecution();
         }
 
         #endregion
 
         #region Private Methods
+
+        private static void PreExecution(string domain)
+        {
+            if (!string.IsNullOrEmpty(domain))
+                _urlTarget = domain;
+
+            FormatDomainInput();
+
+            Execute();
+        }
 
         private static void FormatDomainInput()
         {
@@ -72,7 +89,7 @@ namespace RobotsExplorer
         private static void ParseOptionsInput(string[] args)
         {
             options = new OptionSet()
-                .Add("u=|urlTarget=", ConfigManager.ConfigManager.urlHelpText, u => _urlTarget = u)
+                .Add("u|urlTarget=", ConfigManager.ConfigManager.urlHelpText, u => _urlTarget = u)
                 .Add("p|proxy=", ConfigManager.ConfigManager.proxyHelpText, p => _proxy = p)
                 .Add("l|list=", ConfigManager.ConfigManager.fileListHelpText, l => _domainList = l)
                 .Add("a|userAgent=", ConfigManager.ConfigManager.userAgentHelpText, a => _userAgent = a)
@@ -113,9 +130,11 @@ namespace RobotsExplorer
                     WriteMessageAndSkipLine("Sorry, I failed when I try to access the domain list file :(", 0);
                 }
             }
+            else
+                ValidadeRequiredOptionsInput();
         }
 
-        private static bool ValidadeRequiredOptionsInput(string[] args)
+        private static bool ValidadeRequiredOptionsInput()
         {
             bool valid = false;
 
@@ -143,7 +162,11 @@ namespace RobotsExplorer
 
         private static void Execute()
         {
-            WriteMessageAndSkipLine("... PROCESSING ...", 1);
+            Util.Util.ChangeConsoleColorToDefault();
+
+            WriteMessageAndSkipLine("-------------------------------------------", 0);
+            WriteMessageAndSkipLine("<<< PROCESSING >>> " + _urlTarget, 0);
+            WriteMessageAndSkipLine("-------------------------------------------", 1);
             WriteMessageAndSkipLine("Localizing target host...", 1);
 
             httpManager = new HttpManager.HttpManager();
@@ -204,7 +227,7 @@ namespace RobotsExplorer
             Util.Util.ChangeConsoleColorToDefault();
 
             WriteMessageAndSkipLine(string.Empty, 0);
-            WriteMessageAndSkipLine("Thank you and happy hacking ;)", 0);
+            WriteMessageAndSkipLine("Thank you and happy hacking ;)", 1);
         }
 
         private static void ProceedToAttack()
@@ -216,10 +239,10 @@ namespace RobotsExplorer
             foreach (var directory in robot.Disallows)
             {
                 Util.Util.ChangeConsoleColorToDefault();
-                
-                WriteMessageAndSkipLine(string.Empty, 0);
-                WriteMessageAndSkipLine("Localizing target for directory: " + directory + " ...", 1);
-                
+
+                WriteMessageAndSkipLine(string.Empty, 1);
+                WriteMessageAndSkipLine("Localizing target for directory: " + directory + " ...", 0);
+
                 Attack(robot.Domain, directory);
             }
 
@@ -235,7 +258,7 @@ namespace RobotsExplorer
                 try
                 {
                     PauseExecution(_requestTimeInterval);
-                    
+
                     WebRequest request = httpManager.WebRequestFactory(domain + directory, _proxy, _userAgent, _requestTimeout);
                     WebResponse response = request.GetResponse();
 
@@ -251,8 +274,6 @@ namespace RobotsExplorer
                         Util.Util.ChangeConsoleColorToRed();
                         WriteMessageAndSkipLine("Sorry, I failed when I try to access the target directory or the directory is pretty safe :(", 0);
                     }
-
-                    WriteMessageAndSkipLine(string.Empty, 0);
                 }
                 catch (WebException ex)
                 {
@@ -285,19 +306,19 @@ namespace RobotsExplorer
         private static void ProcessResponse(HttpWebResponse response)
         {
             Util.Util.ChangeConsoleColorToGreen();
-            
+
             WriteMessageAndSkipLine("TARGET FOUND :)", 1);
 
             Util.Util.ChangeConsoleColorToDefault();
-            
+
             WriteMessageAndSkipLine("Getting Robots.txt...", 1);
 
             string robotsTxt = Util.Util.ParseResponseStreamToText(response);
 
             Util.Util.ChangeConsoleColorToGreen();
-            
+
             WriteMessageAndSkipLine("VOILÀ!", 1);
-            
+
             Util.Util.ChangeConsoleColorToDefault();
 
             WriteMessageAndSkipLine("Begin of file", 0);
@@ -312,7 +333,7 @@ namespace RobotsExplorer
             {
                 WriteMessageAndSkipLine("Listing 'disallow' directories...", 1);
 
-                foreach (var disallowDirectory in robot.Disallows) 
+                foreach (var disallowDirectory in robot.Disallows)
                     WriteMessageAndSkipLine(disallowDirectory, 0);
 
                 WriteMessageAndSkipLine(string.Empty, 0);
@@ -320,11 +341,7 @@ namespace RobotsExplorer
                 AskForAttack();
             }
             else
-            {
                 WriteMessageAndSkipLine("There is no 'disallow' directories on the target.", 1);
-
-                FinishExecution();
-            }
         }
 
         private static string GetRobotsExplorerVersion()
