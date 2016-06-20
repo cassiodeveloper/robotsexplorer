@@ -60,6 +60,8 @@ namespace RobotsExplorer
 
         #region Private Methods
 
+        #region Flow
+
         private static void PreExecution(string domain)
         {
             if (!string.IsNullOrEmpty(domain))
@@ -69,6 +71,40 @@ namespace RobotsExplorer
 
             Execute();
         }
+
+        private static void Execute()
+        {
+            Util.Util.ChangeConsoleColorToDefault();
+
+            WriteMessageAndSkipLine("-------------------------------------------", 0);
+            WriteMessageAndSkipLine("<<< PROCESSING >>> " + _urlTarget, 0);
+            WriteMessageAndSkipLine("-------------------------------------------", 1);
+            WriteMessageAndSkipLine("Localizing target host...", 1);
+
+            httpManager = new HttpManager.HttpManager();
+
+            if (CanMakeMoreRequest())
+            {
+                WebRequest request = httpManager.WebRequestFactory(_urlTarget, _proxy, _userAgent, _requestTimeout);
+                WebResponse response = request.GetResponse();
+
+                controlRequestQuantity++;
+
+                if (((HttpWebResponse)response).StatusCode == HttpStatusCode.OK)
+                    ProcessResponse((HttpWebResponse)response);
+                else
+                {
+                    Util.Util.ChangeConsoleColorToRed();
+                    WriteMessageAndSkipLine("Sorry, I failed when I try to access the target :(", 0);
+                }
+            }
+            else
+                WriteMessageAndSkipLine("Sorry, you have reached the maximum number of requests that you informed as a parameter {r=" + _requestQuantity + "}.", 0);
+        }
+
+        #endregion
+
+        #region Auxiliary
 
         private static void FormatDomainInput()
         {
@@ -162,36 +198,6 @@ namespace RobotsExplorer
             WriteMessageAndSkipLine(GetRobotsExplorerVersion(), 0);
         }
 
-        private static void Execute()
-        {
-            Util.Util.ChangeConsoleColorToDefault();
-
-            WriteMessageAndSkipLine("-------------------------------------------", 0);
-            WriteMessageAndSkipLine("<<< PROCESSING >>> " + _urlTarget, 0);
-            WriteMessageAndSkipLine("-------------------------------------------", 1);
-            WriteMessageAndSkipLine("Localizing target host...", 1);
-
-            httpManager = new HttpManager.HttpManager();
-
-            if (CanMakeMoreRequest())
-            {
-                WebRequest request = httpManager.WebRequestFactory(_urlTarget, _proxy, _userAgent, _requestTimeout);
-                WebResponse response = request.GetResponse();
-
-                controlRequestQuantity++;
-
-                if (((HttpWebResponse)response).StatusCode == HttpStatusCode.OK)
-                    ProcessResponse((HttpWebResponse)response);
-                else
-                {
-                    Util.Util.ChangeConsoleColorToRed();
-                    WriteMessageAndSkipLine("Sorry, I failed when I try to access the target :(", 0);
-                }
-            }
-            else
-                WriteMessageAndSkipLine("Sorry, you have reached the maximum number of requests that you informed as a parameter {r=" + _requestQuantity + "}.", 0);
-        }
-
         private static bool CanMakeMoreRequest()
         {
             if (controlRequestQuantity <= _requestQuantity)
@@ -199,6 +205,12 @@ namespace RobotsExplorer
             else
                 return false;
         }
+
+        #endregion
+
+
+
+
 
         private static void FinishExecution()
         {
