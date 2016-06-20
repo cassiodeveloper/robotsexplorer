@@ -5,3 +5,10 @@ C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\R
 C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer.Util\obj\Release\RobotsExplorer.Util.csprojResolveAssemblyReference.cache
 C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer.Util\obj\Release\RobotsExplorer.Util.dll
 C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer.Util\obj\Release\RobotsExplorer.Util.pdb
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Util\bin\Release\RobotsExplorer.Util.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Util\bin\Release\RobotsExplorer.Util.pdb
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Util\bin\Release\RobotsExplorer.Model.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Util\bin\Release\RobotsExplorer.Model.pdb
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Util\obj\Release\RobotsExplorer.Util.csprojResolveAssemblyReference.cache
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Util\obj\Release\RobotsExplorer.Util.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Util\obj\Release\RobotsExplorer.Util.pdb

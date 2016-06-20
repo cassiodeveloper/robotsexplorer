@@ -2,3 +2,8 @@ C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\R
 C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer.ConfigManager\bin\Release\RobotsExplorer.ConfigManager.pdb
 C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer.ConfigManager\obj\Release\RobotsExplorer.ConfigManager.dll
 C:\Users\mtzcpd1053\Documents\Visual Studio 2013\Projects\labs.cassiobp.com.br\RobotsExplorer\RobotsExplorer\RobotsExplorer.ConfigManager\obj\Release\RobotsExplorer.ConfigManager.pdb
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.ConfigManager\bin\Release\RobotsExplorer.ConfigManager.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.ConfigManager\bin\Release\RobotsExplorer.ConfigManager.pdb
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.ConfigManager\obj\Release\RobotsExplorer.ConfigManager.csprojResolveAssemblyReference.cache
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.ConfigManager\obj\Release\RobotsExplorer.ConfigManager.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.ConfigManager\obj\Release\RobotsExplorer.ConfigManager.pdb

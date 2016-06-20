@@ -10,8 +10,12 @@ namespace RobotsExplorer.HttpManager
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
             request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
             request.Credentials = CredentialCache.DefaultCredentials;
-            request.UserAgent = userAgent;
-            request.Timeout = timeout;
+            
+            if(!string.IsNullOrEmpty(userAgent))
+                request.UserAgent = userAgent;
+            
+            if(timeout > 0)
+                request.Timeout = timeout;
 
             if (!string.IsNullOrEmpty(proxy))
                 request.Proxy = Util.Util.FormatProxyStringToProxyObject(proxy);

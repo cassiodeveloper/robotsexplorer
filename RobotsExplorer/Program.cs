@@ -19,7 +19,7 @@ namespace RobotsExplorer
         private static string _userAgent = null;
         private static bool _showHelp = false;
         private static bool _showVersion = false;
-        private static int _requestQuantity = 0;
+        private static int _requestQuantity = int.MaxValue;
         private static int _requestTimeInterval = 0;
         private static int _requestTimeout = 0;
         
@@ -41,10 +41,7 @@ namespace RobotsExplorer
 
             if (ValidadeRequiredOptionsInput(args))
             {
-                if (_urlTarget.Substring(_urlTarget.Length -1, 1) == "/")
-                    _urlTarget += ConfigManager.ConfigManager.robotPath.Replace("/", string.Empty);
-                else    
-                    _urlTarget += ConfigManager.ConfigManager.robotPath;
+                FormatDomainInput();
 
                 Execute();
             }
@@ -53,6 +50,24 @@ namespace RobotsExplorer
         #endregion
 
         #region Private Methods
+
+        private static void FormatDomainInput()
+        {
+            if (_urlTarget.ToLower().EndsWith(".txt") || _urlTarget.ToLower().EndsWith(".txt/"))
+            {
+                _urlTarget.Replace("robots.txt", string.Empty);
+                _urlTarget.Replace("robots.txt/", string.Empty);
+                _urlTarget.Replace("/robots.txt/", string.Empty);
+                _urlTarget.Replace("/robots.txt", string.Empty);
+            }
+            else
+            {
+                if (_urlTarget.Substring(_urlTarget.Length - 1, 1) == "/")
+                    _urlTarget += ConfigManager.ConfigManager.robotPath.Replace("/", string.Empty);
+                else
+                    _urlTarget += ConfigManager.ConfigManager.robotPath;
+            }
+        }
 
         private static void ParseOptionsInput(string[] args)
         {
