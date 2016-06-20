@@ -150,6 +150,20 @@ namespace RobotsExplorer.Util
             return sitemap;
         }
 
+        public static string SaveFile(string fileContent, string path)
+        {
+            string filePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+            string fullPath = filePath + @"\Sitemap.xml"; // TODO - Save more than 1 xml file and per domain.
+
+            using (StreamWriter outputFile = new StreamWriter(fullPath))
+            {
+                outputFile.Write(fileContent);
+            }
+
+            return fullPath;
+        }
+
         #endregion
 
         #region Private and Auxiliary Methods

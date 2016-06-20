@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Threading;
 using RobotsExplorer.Util;
 using System.Xml;
+using System.IO;
 
 namespace RobotsExplorer
 {
@@ -354,11 +355,11 @@ namespace RobotsExplorer
 
                         Util.Util.ChangeConsoleColorToDefault();
 
-                        WriteMessageAndSkipLine("Begin of xml file", 0);
+                        string fullPath = Util.Util.SaveFile(robot.SiteMap.SiteMapData.InnerXml, _urlTarget);
+
                         WriteMessageAndSkipLine("-------------------------------------------", 1);
-                        WriteMessageAndSkipLine(robot.SiteMap.SiteMapData.InnerXml, 1);
+                        WriteMessageAndSkipLine("Sitemap file downloaded at: " + fullPath, 1);
                         WriteMessageAndSkipLine("-------------------------------------------", 0);
-                        WriteMessageAndSkipLine("End of xml file", 1);
                     }
                     else
                     {
