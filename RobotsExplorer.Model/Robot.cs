@@ -9,6 +9,7 @@ namespace RobotsExplorer.Model
         public List<string> Disallows { get; set; }
         public List<string> Comments { get; set; }
         public List<string> UserAgent { get; set; }
-        public List<string> SiteMap { get; set; }
+        public List<string> SiteMaps { get; set; }
+        public SiteMap SiteMap { get; set; }
     }
 }

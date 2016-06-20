@@ -16,3 +16,5 @@ C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Test\bin\Debug\R
 C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Test\obj\Debug\RobotsExplorer.Test.csprojResolveAssemblyReference.cache
 C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Test\obj\Debug\RobotsExplorer.Test.dll
 C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Test\obj\Debug\RobotsExplorer.Test.pdb
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Test\bin\Debug\RobotsExplorer.HttpManager.dll
+C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Test\bin\Debug\RobotsExplorer.HttpManager.pdb

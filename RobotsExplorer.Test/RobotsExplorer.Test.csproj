@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -59,6 +60,10 @@
     <Compile Include="UtilTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RobotsExplorer.HttpManager\RobotsExplorer.HttpManager.csproj">
+      <Project>{3fb6a15b-c118-43be-995d-23a22ac34c92}</Project>
+      <Name>RobotsExplorer.HttpManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RobotsExplorer.Model\RobotsExplorer.Model.csproj">
       <Project>{1f18d9dc-00fd-4715-9b37-e41a6b0bc39c}</Project>
       <Name>RobotsExplorer.Model</Name>

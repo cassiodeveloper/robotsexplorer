@@ -7,6 +7,7 @@ using System.Net;
 using System.Reflection;
 using System.Threading;
 using RobotsExplorer.Util;
+using System.Xml;
 
 namespace RobotsExplorer
 {
@@ -198,30 +199,6 @@ namespace RobotsExplorer
                 return false;
         }
 
-        private static void AskForAttack()
-        {
-            string answer = string.Empty;
-
-            do
-            {
-                WriteMessageAndSkipLine("Do you want to exploit those directories? I am going to tell you if, they are or not listing directories! (Y/N)", 0);
-
-                answer = Console.ReadLine();
-
-                if ((string.IsNullOrEmpty(answer)) || (answer.ToUpper() != "Y" && answer.ToUpper() != "N"))
-                {
-                    WriteMessageAndSkipLine(string.Empty, 0);
-                    WriteMessageAndSkipLine("Wrong answer ¬¬", 0);
-                }
-
-            } while (answer.ToUpper() != "Y" && answer.ToUpper() != "N");
-
-            if (answer.ToUpper() == "Y")
-                ProceedToAttack();
-            else
-                FinishExecution();
-        }
-
         private static void FinishExecution()
         {
             Util.Util.ChangeConsoleColorToDefault();
@@ -329,6 +306,13 @@ namespace RobotsExplorer
 
             robot = Util.Util.ParseRobotTxtToRobotObject(robotsTxt, _urlTarget);
 
+            SiteMapXmlFile(robot);
+
+            DisallowDirectories(robot);
+        }
+
+        private static void DisallowDirectories(Robot robot)
+        {
             if (robot.Disallows != null && robot.Disallows.Count > 0)
             {
                 WriteMessageAndSkipLine("Listing 'disallow' directories...", 1);
@@ -338,10 +322,75 @@ namespace RobotsExplorer
 
                 WriteMessageAndSkipLine(string.Empty, 0);
 
-                AskForAttack();
+                if (AskUser("Do you want to exploit those directories? I am going to tell you if, they are or not listing directories! (Y/N)"))
+                    ProceedToAttack();
+                else
+                    FinishExecution();
             }
             else
                 WriteMessageAndSkipLine("There is no 'disallow' directories on the target.", 1);
+        }
+
+        private static void SiteMapXmlFile(Robot robot)
+        {
+            if (robot.SiteMaps.IsNotNullAndHasCount())
+            {
+                if (AskUser("I've found a Sitemap XML file, do you want to download it? (Y/N)"))
+                {
+                    robot.SiteMap = new SiteMap();
+
+                    WebRequest request = httpManager.WebRequestFactory(robot.SiteMaps[0], _proxy, _userAgent, _requestTimeout);
+                    WebResponse response = request.GetResponse();
+
+                    controlRequestQuantity++;
+
+                    if (((HttpWebResponse)response).StatusCode == HttpStatusCode.OK)
+                    {
+                        robot.SiteMap.SiteMapData = Util.Util.LoadSiteMapXml(Util.Util.ParseResponseStreamToText(request.GetResponse()));
+                        
+                        Util.Util.ChangeConsoleColorToGreen();
+
+                        WriteMessageAndSkipLine("VOILÀ!", 1);
+
+                        Util.Util.ChangeConsoleColorToDefault();
+
+                        WriteMessageAndSkipLine("Begin of xml file", 0);
+                        WriteMessageAndSkipLine("-------------------------------------------", 1);
+                        WriteMessageAndSkipLine(robot.SiteMap.SiteMapData.InnerXml, 1);
+                        WriteMessageAndSkipLine("-------------------------------------------", 0);
+                        WriteMessageAndSkipLine("End of xml file", 1);
+                    }
+                    else
+                    {
+                        Util.Util.ChangeConsoleColorToRed();
+                        WriteMessageAndSkipLine("Sorry, I failed when I try to access the target directory or the directory is pretty safe :(", 0);
+                    }
+                }
+            }
+        }
+
+        private static bool AskUser(string questionText)
+        {
+            string answer = string.Empty;
+
+            do
+            {
+                WriteMessageAndSkipLine(questionText, 1);
+
+                answer = Console.ReadLine();
+
+                if ((string.IsNullOrEmpty(answer)) || (answer.ToUpper() != "Y" && answer.ToUpper() != "N"))
+                {
+                    WriteMessageAndSkipLine(string.Empty, 0);
+                    WriteMessageAndSkipLine("Wrong answer ¬¬", 0);
+                }
+
+            } while (answer.ToUpper() != "Y" && answer.ToUpper() != "N");
+
+            if (answer.ToUpper() == "Y")
+                return true;
+            else
+                return false;
         }
 
         private static string GetRobotsExplorerVersion()

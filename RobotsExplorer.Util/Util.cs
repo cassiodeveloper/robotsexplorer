@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
+using System.Xml;
 
 namespace RobotsExplorer.Util
 {
@@ -49,12 +50,12 @@ namespace RobotsExplorer.Util
             {
                 StreamReader reader = new StreamReader(response.GetResponseStream());
                 
-                string robotsTxt = reader.ReadToEnd();
+                string responseText = reader.ReadToEnd();
                 
                 response.Close();
                 reader.Close();
                 
-                return robotsTxt;
+                return responseText;
             }
             catch (Exception ex)
             {
@@ -133,6 +134,22 @@ namespace RobotsExplorer.Util
             return list != null && list.Count > 0;
         }
 
+        public static XmlDocument LoadSiteMapXml(string siteMapData)
+        {
+            XmlDocument sitemap = new XmlDocument();
+
+            try
+            {
+                sitemap.LoadXml(siteMapData);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            return sitemap;
+        }
+
         #endregion
 
         #region Private and Auxiliary Methods
@@ -141,10 +158,10 @@ namespace RobotsExplorer.Util
         {
             if (matchSiteMap != null && matchSiteMap.Count > 0)
             {
-                robot.SiteMap = new List<string>();
+                robot.SiteMaps = new List<string>();
 
                 foreach (var siteMap in matchSiteMap)
-                    robot.Comments.Add(siteMap.ToString().TrimEnd('\r', '\n').ToLower().Replace("sitemap: ", string.Empty));
+                    robot.SiteMaps.Add(siteMap.ToString().TrimEnd('\r', '\n').ToLower().Replace("sitemap: ", string.Empty));
             }
         }
 
