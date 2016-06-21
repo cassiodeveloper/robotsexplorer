@@ -85,8 +85,8 @@ namespace RobotsExplorer
 
             if (CanMakeMoreRequest())
             {
-                WebRequest request = httpManager.WebRequestFactory(_urlTarget, _proxy, _userAgent, _requestTimeout);
-                WebResponse response = request.GetResponse();
+                var request = httpManager.WebRequestFactory(_urlTarget, _proxy, _userAgent, _requestTimeout);
+                var response = request.GetResponse();
 
                 controlRequestQuantity++;
 
@@ -155,8 +155,10 @@ namespace RobotsExplorer
 
             if (!string.IsNullOrEmpty(_domainList))
             {
-                domainNames = new Domain();
-                domainNames.DomainNames = new List<string>();
+                domainNames = new Domain
+                {
+                    DomainNames = new List<string>()
+                };
 
                 try
                 {
@@ -174,7 +176,7 @@ namespace RobotsExplorer
 
         private static bool ValidadeRequiredOptionsInput()
         {
-            bool valid = false;
+            var valid = false;
 
             if (string.IsNullOrEmpty(_urlTarget))
                 DisplayHelp(options);
@@ -200,17 +202,10 @@ namespace RobotsExplorer
 
         private static bool CanMakeMoreRequest()
         {
-            if (controlRequestQuantity <= _requestQuantity)
-                return true;
-            else
-                return false;
+            return controlRequestQuantity <= _requestQuantity ? true : false;
         }
 
         #endregion
-
-
-
-
 
         private static void FinishExecution()
         {
@@ -249,8 +244,8 @@ namespace RobotsExplorer
                 {
                     PauseExecution(_requestTimeInterval);
 
-                    WebRequest request = httpManager.WebRequestFactory(domain + directory, _proxy, _userAgent, _requestTimeout);
-                    WebResponse response = request.GetResponse();
+                    var request = httpManager.WebRequestFactory(domain + directory, _proxy, _userAgent, _requestTimeout);
+                    var response = request.GetResponse();
 
                     controlRequestQuantity++;
 
@@ -303,7 +298,7 @@ namespace RobotsExplorer
 
             WriteMessageAndSkipLine("Getting Robots.txt...", 1);
 
-            string robotsTxt = Util.Util.ParseResponseStreamToText(response);
+            var robotsTxt = Util.Util.ParseResponseStreamToText(response);
 
             Util.Util.ChangeConsoleColorToGreen();
 
@@ -352,8 +347,8 @@ namespace RobotsExplorer
                 {
                     robot.SiteMap = new SiteMap();
 
-                    WebRequest request = httpManager.WebRequestFactory(robot.SiteMaps[0], _proxy, _userAgent, _requestTimeout);
-                    WebResponse response = request.GetResponse();
+                    var request = httpManager.WebRequestFactory(robot.SiteMaps[0], _proxy, _userAgent, _requestTimeout);
+                    var response = request.GetResponse();
 
                     controlRequestQuantity++;
 
@@ -367,7 +362,7 @@ namespace RobotsExplorer
 
                         Util.Util.ChangeConsoleColorToDefault();
 
-                        string fullPath = Util.Util.SaveFile(robot.SiteMap.SiteMapData.InnerXml, _urlTarget);
+                        var fullPath = Util.Util.SaveFile(robot.SiteMap.SiteMapData.InnerXml, _urlTarget);
 
                         WriteMessageAndSkipLine("-------------------------------------------", 1);
                         WriteMessageAndSkipLine("Sitemap file downloaded at: " + fullPath, 1);
@@ -384,7 +379,7 @@ namespace RobotsExplorer
 
         private static bool AskUser(string questionText)
         {
-            string answer = string.Empty;
+            var answer = string.Empty;
 
             do
             {
@@ -400,10 +395,7 @@ namespace RobotsExplorer
 
             } while (answer.ToUpper() != "Y" && answer.ToUpper() != "N");
 
-            if (answer.ToUpper() == "Y")
-                return true;
-            else
-                return false;
+            return answer.ToUpper() == "Y" ? true : false;
         }
 
         private static string GetRobotsExplorerVersion()

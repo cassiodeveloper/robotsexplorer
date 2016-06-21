@@ -12,3 +12,10 @@ C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Util\bin\Debug\R
 C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Util\obj\Debug\RobotsExplorer.Util.csprojResolveAssemblyReference.cache
 C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Util\obj\Debug\RobotsExplorer.Util.dll
 C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.Util\obj\Debug\RobotsExplorer.Util.pdb
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.Util\bin\Debug\RobotsExplorer.Util.dll
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.Util\bin\Debug\RobotsExplorer.Util.pdb
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.Util\bin\Debug\RobotsExplorer.Model.dll
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.Util\bin\Debug\RobotsExplorer.Model.pdb
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.Util\obj\Debug\RobotsExplorer.Util.csprojResolveAssemblyReference.cache
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.Util\obj\Debug\RobotsExplorer.Util.dll
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.Util\obj\Debug\RobotsExplorer.Util.pdb

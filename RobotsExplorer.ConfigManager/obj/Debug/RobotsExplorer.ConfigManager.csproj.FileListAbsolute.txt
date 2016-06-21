@@ -8,3 +8,8 @@ C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.ConfigManager\bi
 C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.ConfigManager\obj\Debug\RobotsExplorer.ConfigManager.csprojResolveAssemblyReference.cache
 C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.ConfigManager\obj\Debug\RobotsExplorer.ConfigManager.dll
 C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.ConfigManager\obj\Debug\RobotsExplorer.ConfigManager.pdb
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.ConfigManager\bin\Debug\RobotsExplorer.ConfigManager.dll
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.ConfigManager\bin\Debug\RobotsExplorer.ConfigManager.pdb
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.ConfigManager\obj\Debug\RobotsExplorer.ConfigManager.csprojResolveAssemblyReference.cache
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.ConfigManager\obj\Debug\RobotsExplorer.ConfigManager.dll
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.ConfigManager\obj\Debug\RobotsExplorer.ConfigManager.pdb

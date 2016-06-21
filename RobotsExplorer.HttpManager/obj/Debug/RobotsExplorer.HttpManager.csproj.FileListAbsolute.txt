@@ -16,3 +16,12 @@ C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.HttpManager\bin\
 C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.HttpManager\obj\Debug\RobotsExplorer.HttpManager.csprojResolveAssemblyReference.cache
 C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.HttpManager\obj\Debug\RobotsExplorer.HttpManager.dll
 C:\Users\mtzcpd1053\Documents\src\RobotsExplorer\RobotsExplorer.HttpManager\obj\Debug\RobotsExplorer.HttpManager.pdb
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.HttpManager\bin\Debug\RobotsExplorer.HttpManager.dll
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.HttpManager\bin\Debug\RobotsExplorer.HttpManager.pdb
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.HttpManager\bin\Debug\RobotsExplorer.Model.dll
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.HttpManager\bin\Debug\RobotsExplorer.Util.dll
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.HttpManager\bin\Debug\RobotsExplorer.Model.pdb
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.HttpManager\bin\Debug\RobotsExplorer.Util.pdb
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.HttpManager\obj\Debug\RobotsExplorer.HttpManager.csprojResolveAssemblyReference.cache
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.HttpManager\obj\Debug\RobotsExplorer.HttpManager.dll
+F:\Cássio\Documents\GitHub\robotsexplorer\RobotsExplorer.HttpManager\obj\Debug\RobotsExplorer.HttpManager.pdb
