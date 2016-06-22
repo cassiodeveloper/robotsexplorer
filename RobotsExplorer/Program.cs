@@ -102,111 +102,6 @@ namespace RobotsExplorer
                 WriteMessageAndSkipLine("Sorry, you have reached the maximum number of requests that you informed as a parameter {r=" + _requestQuantity + "}.", 0);
         }
 
-        #endregion
-
-        #region Auxiliary
-
-        private static void FormatDomainInput()
-        {
-            if (_urlTarget.ToLower().EndsWith(".txt") || _urlTarget.ToLower().EndsWith(".txt/"))
-            {
-                _urlTarget.Replace("robots.txt", string.Empty);
-                _urlTarget.Replace("robots.txt/", string.Empty);
-                _urlTarget.Replace("/robots.txt/", string.Empty);
-                _urlTarget.Replace("/robots.txt", string.Empty);
-            }
-            else
-            {
-                if (_urlTarget.Substring(_urlTarget.Length - 1, 1) == "/")
-                    _urlTarget += ConfigManager.ConfigManager.robotPath.Replace("/", string.Empty);
-                else
-                    _urlTarget += ConfigManager.ConfigManager.robotPath;
-            }
-        }
-
-        private static void ParseOptionsInput(string[] args)
-        {
-            options = new OptionSet()
-                .Add("u|urlTarget=", ConfigManager.ConfigManager.urlHelpText, u => _urlTarget = u)
-                .Add("p|proxy=", ConfigManager.ConfigManager.proxyHelpText, p => _proxy = p)
-                .Add("l|list=", ConfigManager.ConfigManager.fileListHelpText, l => _domainList = l)
-                .Add("a|userAgent=", ConfigManager.ConfigManager.userAgentHelpText, a => _userAgent = a)
-                .Add("r|requestQuantity=", ConfigManager.ConfigManager.requestQuantityHelpText, r => _requestQuantity = Convert.ToInt32(r))
-                .Add("i|requestTimeInterval=", ConfigManager.ConfigManager.requestTimeIntervalHelpText, i => _requestTimeInterval = Convert.ToInt32(i))
-                .Add("t|requestTimeout=", ConfigManager.ConfigManager.requestTimeoutHelpText, i => _requestTimeout = Convert.ToInt32(i))
-                .Add("v|version=", ConfigManager.ConfigManager.versionHelpText, v => _showVersion = v != null)
-                .Add("?|h|help", ConfigManager.ConfigManager.helpText, h => _showHelp = h != null);
-
-            options.Parse(args);
-
-            ValidadeOptionsInput();
-        }
-
-        private static void ValidadeOptionsInput()
-        {
-            if (_showVersion)
-            {
-                DisplayVersion();
-                Environment.Exit(0);
-            }
-
-            if (_showHelp)
-                DisplayHelp(options);
-
-            if (!string.IsNullOrEmpty(_domainList))
-            {
-                domainNames = new Domain
-                {
-                    DomainNames = new List<string>()
-                };
-
-                try
-                {
-                    Util.Util.ReadTextFileAndFillDomainsList(_domainList, domainNames);
-                }
-                catch (Exception ex)
-                {
-                    Util.Util.ChangeConsoleColorToRed();
-                    WriteMessageAndSkipLine("Sorry, I failed when I try to access the domain list file :(", 0);
-                }
-            }
-            else
-                ValidadeRequiredOptionsInput();
-        }
-
-        private static bool ValidadeRequiredOptionsInput()
-        {
-            var valid = false;
-
-            if (string.IsNullOrEmpty(_urlTarget))
-                DisplayHelp(options);
-            else
-                valid = true;
-
-            return valid;
-        }
-
-        private static void DisplayHelp(OptionSet options)
-        {
-            WriteMessageAndSkipLine("Robots Explorer --- Version: " + GetRobotsExplorerVersion() + " Released: June, 2016", 0);
-            WriteMessageAndSkipLine("Copyright (C) 2016 Batista Pereira, Cássio (http://github.com/cassiodeveloper)", 0);
-            WriteMessageAndSkipLine("http://cassiodeveloper.github.io/robotsexplorer", 1);
-            WriteMessageAndSkipLine("Options:", 0);
-            options.WriteOptionDescriptions(Console.Out);
-        }
-
-        private static void DisplayVersion()
-        {
-            WriteMessageAndSkipLine(GetRobotsExplorerVersion(), 0);
-        }
-
-        private static bool CanMakeMoreRequest()
-        {
-            return controlRequestQuantity <= _requestQuantity ? true : false;
-        }
-
-        #endregion
-
         private static void FinishExecution()
         {
             Util.Util.ChangeConsoleColorToDefault();
@@ -355,7 +250,7 @@ namespace RobotsExplorer
                     if (((HttpWebResponse)response).StatusCode == HttpStatusCode.OK)
                     {
                         robot.SiteMap.SiteMapData = Util.Util.LoadSiteMapXml(Util.Util.ParseResponseStreamToText(request.GetResponse()));
-                        
+
                         Util.Util.ChangeConsoleColorToGreen();
 
                         WriteMessageAndSkipLine("VOILÀ!", 1);
@@ -398,6 +293,109 @@ namespace RobotsExplorer
             return answer.ToUpper() == "Y" ? true : false;
         }
 
+        #endregion
+
+        #region Auxiliary
+
+        private static void FormatDomainInput()
+        {
+            if (_urlTarget.ToLower().EndsWith(".txt") || _urlTarget.ToLower().EndsWith(".txt/"))
+            {
+                _urlTarget.Replace("robots.txt", string.Empty);
+                _urlTarget.Replace("robots.txt/", string.Empty);
+                _urlTarget.Replace("/robots.txt/", string.Empty);
+                _urlTarget.Replace("/robots.txt", string.Empty);
+            }
+            else
+            {
+                if (_urlTarget.Substring(_urlTarget.Length - 1, 1) == "/")
+                    _urlTarget += ConfigManager.ConfigManager.robotPath.Replace("/", string.Empty);
+                else
+                    _urlTarget += ConfigManager.ConfigManager.robotPath;
+            }
+        }
+
+        private static void ParseOptionsInput(string[] args)
+        {
+            options = new OptionSet()
+                .Add("u|urlTarget=", ConfigManager.ConfigManager.urlHelpText, u => _urlTarget = u)
+                .Add("p|proxy=", ConfigManager.ConfigManager.proxyHelpText, p => _proxy = p)
+                .Add("l|list=", ConfigManager.ConfigManager.fileListHelpText, l => _domainList = l)
+                .Add("a|userAgent=", ConfigManager.ConfigManager.userAgentHelpText, a => _userAgent = a)
+                .Add("r|requestQuantity=", ConfigManager.ConfigManager.requestQuantityHelpText, r => _requestQuantity = Convert.ToInt32(r))
+                .Add("i|requestTimeInterval=", ConfigManager.ConfigManager.requestTimeIntervalHelpText, i => _requestTimeInterval = Convert.ToInt32(i))
+                .Add("t|requestTimeout=", ConfigManager.ConfigManager.requestTimeoutHelpText, i => _requestTimeout = Convert.ToInt32(i))
+                .Add("v|version=", ConfigManager.ConfigManager.versionHelpText, v => _showVersion = v != null)
+                .Add("?|h|help", ConfigManager.ConfigManager.helpText, h => _showHelp = h != null);
+
+            options.Parse(args);
+
+            ValidadeOptionsInput();
+        }
+
+        private static void ValidadeOptionsInput()
+        {
+            if (_showVersion)
+            {
+                DisplayVersion();
+                Environment.Exit(0);
+            }
+
+            if (_showHelp)
+                DisplayHelp(options);
+
+            if (!string.IsNullOrEmpty(_domainList))
+            {
+                domainNames = new Domain
+                {
+                    DomainNames = new List<string>()
+                };
+
+                try
+                {
+                    Util.Util.ReadTextFileAndFillDomainsList(_domainList, domainNames);
+                }
+                catch (Exception ex)
+                {
+                    Util.Util.ChangeConsoleColorToRed();
+                    WriteMessageAndSkipLine("Sorry, I failed when I try to access the domain list file :(", 0);
+                }
+            }
+            else
+                ValidadeRequiredOptionsInput();
+        }
+
+        private static bool ValidadeRequiredOptionsInput()
+        {
+            var valid = false;
+
+            if (string.IsNullOrEmpty(_urlTarget))
+                DisplayHelp(options);
+            else
+                valid = true;
+
+            return valid;
+        }
+
+        private static void DisplayHelp(OptionSet options)
+        {
+            WriteMessageAndSkipLine("Robots Explorer --- Version: " + GetRobotsExplorerVersion() + " Released: June, 2016", 0);
+            WriteMessageAndSkipLine("Copyright (C) 2016 Batista Pereira, Cássio (http://github.com/cassiodeveloper)", 0);
+            WriteMessageAndSkipLine("http://cassiodeveloper.github.io/robotsexplorer", 1);
+            WriteMessageAndSkipLine("Options:", 0);
+            options.WriteOptionDescriptions(Console.Out);
+        }
+
+        private static void DisplayVersion()
+        {
+            WriteMessageAndSkipLine(GetRobotsExplorerVersion(), 0);
+        }
+
+        private static bool CanMakeMoreRequest()
+        {
+            return controlRequestQuantity <= _requestQuantity ? true : false;
+        }
+
         private static string GetRobotsExplorerVersion()
         {
             return FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
@@ -424,6 +422,8 @@ namespace RobotsExplorer
                 WriteMessageAndSkipLine("Sorry, I failed when I try to set Time Interval between requests :(", 0);
             }
         }
+
+        #endregion
 
         #endregion
     }
